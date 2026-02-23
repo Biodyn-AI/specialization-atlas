@@ -1,0 +1,33 @@
+head_id	rank	term_id	term_name	p_value	term_size	intersection_size	source
+0:1	1	GO:0002376	immune system process	2.4648447512033296e-08	2871	33	GO:BP
+0:1	2	GO:0006952	defense response	4.798959199280982e-06	1853	24	GO:BP
+0:1	3	GO:0006955	immune response	8.30609499927848e-06	2070	25	GO:BP
+0:1	4	GO:0009605	response to external stimulus	0.0001826104791366839	2415	25	GO:BP
+0:1	5	GO:0002682	regulation of immune system process	0.00022290072264933943	1581	20	GO:BP
+0:1	6	GO:1902105	regulation of leukocyte differentiation	0.0002435637150229584	330	10	GO:BP
+0:1	7	GO:0051707	response to other organism	0.0002495475819240851	1592	20	GO:BP
+0:1	8	GO:0043207	response to external biotic stimulus	0.00025730869881835375	1595	20	GO:BP
+0:3	1	GO:0006955	immune response	1.8452505405750016e-20	2070	53	GO:BP
+0:3	2	GO:0002376	immune system process	6.865319815902058e-18	2871	58	GO:BP
+0:3	3	GO:0002250	adaptive immune response	1.192529750801636e-15	762	31	GO:BP
+0:3	4	GO:0050853	B cell receptor signaling pathway	1.0816999631332865e-08	72	10	GO:BP
+0:3	5	GO:0050896	response to stimulus	2.5861569803224435e-07	8999	83	GO:BP
+0:3	6	GO:0050778	positive regulation of immune response	1.4236398400902949e-06	760	21	GO:BP
+0:3	7	GO:0051707	response to other organism	2.1238720579121417e-06	1592	30	GO:BP
+0:3	8	GO:0043207	response to external biotic stimulus	2.220345696423956e-06	1595	30	GO:BP
+0:5	1	GO:0002250	adaptive immune response	7.434252405086414e-26	762	39	GO:BP
+0:5	2	GO:0006955	immune response	1.5179878073084836e-25	2070	56	GO:BP
+0:5	3	GO:0002376	immune system process	5.503997535672163e-22	2871	60	GO:BP
+0:5	4	GO:0016064	immunoglobulin mediated immune response	5.4012158235541805e-09	209	14	GO:BP
+0:5	5	GO:0019724	B cell mediated immunity	6.555108190502185e-09	212	14	GO:BP
+0:5	6	GO:0050851	antigen receptor-mediated signaling pathway	3.6162568576869306e-08	195	13	GO:BP
+0:5	7	GO:0002449	lymphocyte mediated immunity	1.5896938322546046e-07	381	16	GO:BP
+0:5	8	GO:0050896	response to stimulus	2.2434584207389547e-07	8999	78	GO:BP
+9:1	1	GO:0044281	small molecule metabolic process	3.726829708471514e-13	1776	42	GO:BP
+9:1	2	GO:0019752	carboxylic acid metabolic process	1.6287453039759486e-11	887	29	GO:BP
+9:1	3	GO:0043436	oxoacid metabolic process	3.0493727307694336e-11	909	29	GO:BP
+9:1	4	GO:0006082	organic acid metabolic process	3.6070000701335175e-11	915	29	GO:BP
+9:1	5	GO:0032787	monocarboxylic acid metabolic process	5.992186639636661e-08	616	21	GO:BP
+9:1	6	GO:0006805	xenobiotic metabolic process	2.1430716191899614e-07	125	11	GO:BP
+9:1	7	GO:0009056	catabolic process	2.3844170297601186e-07	2639	42	GO:BP
+9:1	8	GO:0044282	small molecule catabolic process	5.508359735363964e-07	371	16	GO:BP

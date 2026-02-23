@@ -1,0 +1,40 @@
+experiment	group	metric	value	notes
+checkpoint_replication	whole_human	head_0:3_significant_thresholds	4/4	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	whole_human	head_0:3_min_q	1.1469116126870234e-14	minimum FDR-adjusted q-value across threshold sweep
+checkpoint_replication	whole_human	head_0:5_significant_thresholds	0/4	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	whole_human	head_0:5_min_q	0.94481049477039	minimum FDR-adjusted q-value across threshold sweep
+checkpoint_replication	whole_human	head_9:1_significant_thresholds	0/4	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	whole_human	head_9:1_min_q	1.0	minimum FDR-adjusted q-value across threshold sweep
+checkpoint_replication	kidney	head_0:3_significant_thresholds	0/4	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	kidney	head_0:3_min_q	0.3860756169646837	minimum FDR-adjusted q-value across threshold sweep
+checkpoint_replication	kidney	head_0:5_significant_thresholds	0/4	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	kidney	head_0:5_min_q	0.458301392437043	minimum FDR-adjusted q-value across threshold sweep
+checkpoint_replication	kidney	head_9:1_significant_thresholds	0/0	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	kidney	head_9:1_min_q		minimum FDR-adjusted q-value across threshold sweep
+checkpoint_replication	brain	head_0:3_significant_thresholds	0/4	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	brain	head_0:3_min_q	0.6165106059067036	minimum FDR-adjusted q-value across threshold sweep
+checkpoint_replication	brain	head_0:5_significant_thresholds	0/4	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	brain	head_0:5_min_q	1.0	minimum FDR-adjusted q-value across threshold sweep
+checkpoint_replication	brain	head_9:1_significant_thresholds	0/0	q<0.10 across top20/15/10/5% using nonzero TF-source checkpoint edges
+checkpoint_replication	brain	head_9:1_min_q		minimum FDR-adjusted q-value across threshold sweep
+immune_candidate_space	strict	candidate_pairs	314	TRRUST source/target masking regime
+immune_candidate_space	strict	candidate_positive_rate	0.0955414012738853	class prior among candidate pairs
+immune_candidate_space	strict	top_head_delta_aupr	0.080856788896142	top-head AUPR minus aggregate AUPR
+immune_candidate_space	source_only	candidate_pairs	13189	TRRUST source/target masking regime
+immune_candidate_space	source_only	candidate_positive_rate	0.0022746227917203	class prior among candidate pairs
+immune_candidate_space	source_only	top_head_delta_aupr	0.008612325631591	top-head AUPR minus aggregate AUPR
+immune_candidate_space	expanded	candidate_pairs	1438800	TRRUST source/target masking regime
+immune_candidate_space	expanded	candidate_positive_rate	2.085070892410342e-05	class prior among candidate pairs
+immune_candidate_space	expanded	top_head_delta_aupr	0.0031604319701903	top-head AUPR minus aggregate AUPR
+targeted_perturbation_validation	immune_family_overlap	n_pairs_overlap	25	causal-score pairs overlapping perturbation-derived source universe
+targeted_perturbation_validation	immune_family_overlap	n_positive_overlap	9	pairs labeled positive by perturbation top-k target edges
+targeted_perturbation_validation	immune_family_overlap	aupr	0.4339808563826489	AUPR of absolute ablation effect vs perturbation labels
+targeted_perturbation_validation	immune_family_overlap	auroc	0.5833333333333334	AUROC of absolute ablation effect vs perturbation labels
+targeted_perturbation_validation	immune_family_overlap	perm_p_value	0.1497005988023952	permutation p-value from 500 label shuffles
+targeted_perturbation_validation	immune_family_overlap	top_k_targets	500	perturbation-derived top-k targets per source
+targeted_perturbation_validation	metabolic_family_overlap	n_pairs_overlap	29	causal-score pairs overlapping perturbation-derived source universe
+targeted_perturbation_validation	metabolic_family_overlap	n_positive_overlap	12	pairs labeled positive by perturbation top-k target edges
+targeted_perturbation_validation	metabolic_family_overlap	aupr	0.4053399921334704	AUPR of absolute ablation effect vs perturbation labels
+targeted_perturbation_validation	metabolic_family_overlap	auroc	0.4754901960784313	AUROC of absolute ablation effect vs perturbation labels
+targeted_perturbation_validation	metabolic_family_overlap	perm_p_value	0.4510978043912175	permutation p-value from 500 label shuffles
+targeted_perturbation_validation	metabolic_family_overlap	top_k_targets	500	perturbation-derived top-k targets per source

@@ -1,0 +1,7 @@
+tissue_a	tissue_b	ari	n_heads	n_clusters_a	n_clusters_b
+immune	external	0.17866213672770295	96	37	22
+kidney	lung	0.013538795346108287	96	58	82
+lung	immune	0.013494048877915336	96	82	37
+lung	external	0.003354896109432634	96	82	22
+kidney	external	-0.00496607209397539	96	58	22
+kidney	immune	-0.019373022807640444	96	58	37

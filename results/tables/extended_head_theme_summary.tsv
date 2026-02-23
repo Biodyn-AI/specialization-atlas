@@ -1,0 +1,7 @@
+head_id	n_high_conf_edges	n_source_genes_submitted	top_term	top_term_p_value	top_term_theme
+0:1	137	125	immune system process	2.4648447512033296e-08	immune_adaptive
+0:3	4384	200	immune response	1.8452505405750016e-20	immune_adaptive
+0:5	2165	200	adaptive immune response	7.434252405086414e-26	immune_adaptive
+4:1	37	29			no_significant_terms
+8:5	8	8			no_significant_terms
+9:1	142	129	small molecule metabolic process	3.726829708471514e-13	metabolic_catabolic

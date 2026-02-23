@@ -1,0 +1,5 @@
+tissue	n_cells	n_genes	processed_h5ad
+kidney	11376	1930	single_cell_mechinterp/outputs/atlas/kidney/tabula_sapiens_kidney_processed.h5ad
+lung	65847	1945	single_cell_mechinterp/outputs/atlas/lung/tabula_sapiens_lung_processed.h5ad
+immune	10000	1949	single_cell_mechinterp/outputs/atlas/immune/tabula_sapiens_immune_processed.h5ad
+external_krasnow_lung	9409	1999	single_cell_mechinterp/outputs/atlas/external_krasnow_lung/krasnow_lung_smartsq2_processed.h5ad

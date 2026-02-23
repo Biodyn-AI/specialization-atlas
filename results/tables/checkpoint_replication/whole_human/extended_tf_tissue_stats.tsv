@@ -1,0 +1,4 @@
+tissue	n_rows	n_positive_delta	max_delta	mean_delta	n_unique_heads	n_unique_tfs
+lung	25	19	0.4166666666666666	0.14758730158730157	5	8
+external_krasnow_lung	10	0	0.0	0.0	5	2
+kidney	15	0	0.0	0.0	5	3

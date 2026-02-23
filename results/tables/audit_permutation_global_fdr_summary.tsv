@@ -1,0 +1,5 @@
+tissue	n_heads	n_sig_global_q_lt_0_10	n_sig_global_q_lt_0_05	min_global_q	median_z_like
+external_krasnow_lung	10	6	1	0.04738213693437562	1.7506309918102079
+immune	10	0	0	1.0	
+kidney	10	10	10	0.012437810945273499	6.362938574081355
+lung	10	10	10	0.012437810945273499	4.89885733241902

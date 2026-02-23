@@ -1,0 +1,25 @@
+# NOTE: This config documents the original experiment configuration.
+# Absolute paths have been replaced with <ORIGINAL_WORKSPACE>/ placeholders.
+# These configs are provided for provenance and reproducibility documentation.
+
+project:
+  name: perturb-metabolic-family-overlap
+  seed: 42
+
+paths:
+  causal_scores: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/outputs/head_layer_checkpoint_replication/causal_metabolic_family_overlap/causal_scores.tsv
+  perturbation_h5ad: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/data/perturb/adamson/perturb_processed_symbols.h5ad
+  hgnc_alias_tsv: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/external/hgnc_complete_set.txt
+  output_dir: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/outputs/head_layer_checkpoint_replication/perturb_metabolic_family_overlap
+
+perturbation_validation:
+  obs_key: condition
+  control_labels: [ctrl, control]
+  delimiter: "+"
+  allow_multi: false
+  min_cells: 20
+  top_k_targets: 500
+  min_abs_delta: 0.0
+  use_abs: true
+  exclude_self: true
+  score_mode: abs

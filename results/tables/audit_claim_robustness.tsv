@@ -1,0 +1,5 @@
+claim_id	description	numerator	denominator	estimate	passes_adversarial_gate	notes
+C1_top_head_gain_non_degenerate	Top-head AUPR exceeds aggregate in non-degenerate tissues.	3	3	1.0	True	Uses candidate_pairs>=200 filter.
+C2_permutation_global_fdr	At least one head remains significant per tissue under global BH q<0.10.	3	4	0.75	True	Includes immune tissue.
+C3_conservation_global_fdr	Cross-tissue overlap significance survives BH q<0.10 across all k/pairs.	0	18	0.0	False	18 tests: 6 tissue pairs x 3 top-k levels.
+C4_evidence_alignment_nonzero	Pearson correlation is positive for mean_nonzero atlas-evidence summaries.	8	8	1.0	True	Uses head_layer_atlas_correlations.csv.

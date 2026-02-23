@@ -1,0 +1,15 @@
+project:
+  name: network-inference-evidence-head-layer
+  seed: 42
+
+paths:
+  processed_h5ad: ../../single_cell_mechinterp/outputs/tabula_sapiens_processed.h5ad
+  network_edges: ../outputs/inferred_edges_regulatory.tsv
+  attention_scores_head_layer: ../../single_cell_mechinterp/outputs/atlas/kidney/attention_scores_head_layer.npy
+  attention_counts_head_layer: ../../single_cell_mechinterp/outputs/atlas/kidney/attention_counts_head_layer.npy
+
+evidence:
+  top_k: 5
+  min_score: null
+  top_n_edges: 2000
+  output_path: ../outputs/head_layer_evidence_top_2k.tsv

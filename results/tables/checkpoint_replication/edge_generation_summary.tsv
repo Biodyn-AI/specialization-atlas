@@ -1,0 +1,4 @@
+checkpoint	n_edges	n_sources	n_targets	score_min	score_median	score_max	config
+whole_human	1587	18	451	0.008576684631407261	0.022942617535591125	0.11934421211481094	top_k_per_source=100, source_mask=TRRUST sources, target_mask=None, score>0
+kidney	1587	18	436	0.008631380274891853	0.0223710760474205	0.1221655085682869	top_k_per_source=100, source_mask=TRRUST sources, target_mask=None, score>0
+brain	1587	18	441	0.008588036149740219	0.023075610399246216	0.12149107456207275	top_k_per_source=100, source_mask=TRRUST sources, target_mask=None, score>0

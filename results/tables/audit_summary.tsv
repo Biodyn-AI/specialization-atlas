@@ -1,0 +1,2 @@
+n_perm_tests	n_perm_sig_global_q_lt_0_10	n_overlap_tests	n_overlap_sig_global_q_lt_0_10	n_evidence_corr_tests	n_evidence_corr_sig_global_q_lt_0_10	n_tissues_ready_primary_claims	n_tissues_with_3plus_risk_flags	n_claims_passing_adversarial_gate	n_claims_tested
+40	26	18	0	16	16	3	1	3	4

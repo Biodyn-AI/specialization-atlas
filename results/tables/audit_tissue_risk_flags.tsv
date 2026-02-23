@@ -1,0 +1,5 @@
+tissue	candidate_pairs	candidate_positive_rate	delta_aupr	n_heads_q_lt_0_10	mean_spearman	ablation_mean_diff_aupr	readiness_score	ready_for_primary_claims	degenerate_candidate_space	high_base_rate	zero_or_negative_delta	no_permutation_support	low_rank_stability	nonpositive_ablation_direction	n_risk_flags
+external_krasnow_lung	287	0.1080139372822299	0.0290399430740939	8	0.6275023767982288	-0.0003550426150764	4	True	False	False	False	False	False	True	1
+immune	2	1.0	0.0	0		0.0	0	False	True	True	True	True	True	True	6
+kidney	896	0.0569196428571428	0.0085942883061291	10	0.8596887289166181	0.0015825067249888	5	True	False	False	False	False	False	False	0
+lung	2870	0.0463414634146341	0.0334896119933128	10	0.8973261247441378	0.0002630943843728	5	True	False	False	False	False	False	False	0

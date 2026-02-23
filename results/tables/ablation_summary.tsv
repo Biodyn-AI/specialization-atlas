@@ -1,0 +1,9 @@
+ablation_type	n	mean_precision_drop	mean_recall_drop	mean_f1_drop	mean_aupr_drop	tissue
+top_head	10	0.0	0.0	0.0	0.0025269512151979	kidney
+random_head	50	0.0	0.0	0.0	0.0009444444902091	kidney
+top_head	10	0.0002	0.0022222222222222	0.0003669724770642	0.000218678002598	lung
+random_head	50	-7.999999999999854e-05	-0.0008888888888888	-0.0001467889908256	-4.441638177484788e-05	lung
+top_head	10	0.0	0.0	0.0	0.0	immune
+random_head	50	0.0	0.0	0.0	0.0	immune
+top_head	10	0.0	0.0	0.0	-0.0003549430822627	external_krasnow_lung
+random_head	50	0.0	0.0	0.0	9.953281368102475e-08	external_krasnow_lung

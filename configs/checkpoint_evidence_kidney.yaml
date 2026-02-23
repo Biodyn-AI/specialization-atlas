@@ -1,0 +1,19 @@
+# NOTE: This config documents the original experiment configuration.
+# Absolute paths have been replaced with <ORIGINAL_WORKSPACE>/ placeholders.
+# These configs are provided for provenance and reproducibility documentation.
+
+project:
+  name: hl-evidence-kidney
+  seed: 42
+
+paths:
+  processed_h5ad: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/outputs/head_layer_checkpoint_replication/immune_shared_hvg1200_processed.h5ad
+  network_edges: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/tables/checkpoint_replication/kidney/inferred_edges.tsv
+  attention_scores_head_layer: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/outputs/head_layer_checkpoint_replication/kidney/attention_scores_head_layer.npy
+  attention_counts_head_layer: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/outputs/head_layer_checkpoint_replication/kidney/attention_counts_head_layer.npy
+
+evidence:
+  top_k: 5
+  min_score: null
+  top_n_edges: null
+  output_path: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/tables/checkpoint_replication/kidney/head_layer_evidence.tsv

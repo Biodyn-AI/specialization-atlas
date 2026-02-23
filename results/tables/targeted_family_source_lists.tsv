@@ -1,0 +1,3 @@
+family	heads	n_high_conf_edges	n_source_genes_written	edge_score_q90
+immune_family	0:1,0:3,0:5	6686	120	0.01442219503223888
+metabolic_family	9:1	142	120	0.01442219503223888

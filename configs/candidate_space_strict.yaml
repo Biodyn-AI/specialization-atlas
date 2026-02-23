@@ -1,0 +1,63 @@
+# NOTE: This config documents the original experiment configuration.
+# Absolute paths have been replaced with <ORIGINAL_WORKSPACE>/ placeholders.
+# These configs are provided for provenance and reproducibility documentation.
+
+project:
+  name: hl-immune-candidate-strict
+  seed: 42
+
+paths:
+  scgpt_repo: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/external/scGPT
+  scgpt_checkpoint: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/external/scGPT_checkpoints/whole-human/best_model.pt
+  scgpt_vocab: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/external/scGPT_checkpoints/whole-human/vocab.json
+  tabula_sapiens_h5ad: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/data/raw/tabula_sapiens_immune.h5ad
+  gene_info_csv: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/external/gene_info.csv
+  hgnc_alias_tsv: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/external/hgnc_complete_set.txt
+  processed_h5ad: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/outputs/head_layer_checkpoint_replication/immune_shared_hvg1200_processed.h5ad
+  attention_scores_head_layer: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/outputs/head_layer_checkpoint_replication/whole_human/attention_scores_head_layer.npy
+  attention_counts_head_layer: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/outputs/head_layer_checkpoint_replication/whole_human/attention_counts_head_layer.npy
+  network_edges: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/tables/candidate_space/strict/inferred_edges.tsv
+  dorothea_tsv: <ORIGINAL_WORKSPACE>/single_cell_mechinterp/external/networks/trrust_human.tsv
+
+scgpt_dataset:
+  max_genes: 1200
+  include_zero: false
+  sort_by_expression: true
+  pad_token_id: null
+  cls_token_id: null
+
+model:
+  entrypoint: scgpt.model.TransformerModel
+  model_args: {}
+  prefix_to_strip: null
+  forward_key_map:
+    gene_ids: src
+    gene_values: values
+    src_key_padding_mask: src_key_padding_mask
+
+network:
+  threshold_percentile: 95
+  top_k: 50
+  candidate_sources_from_dorothea: true
+  candidate_targets_from_dorothea: true
+
+evaluation:
+  dorothea_confidence: [A, B, C, D]
+
+atlas:
+  output_dir: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/tables/candidate_space/strict
+  metrics_tsv: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/tables/candidate_space/strict/head_layer_metrics.tsv
+  baseline_metrics_tsv: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/tables/candidate_space/strict/baseline_metrics.tsv
+  bootstrap_tsv: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/tables/candidate_space/strict/head_layer_bootstrap.tsv
+  clusters_tsv: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/tables/candidate_space/strict/head_clusters.tsv
+  heatmap_png: <ORIGINAL_WORKSPACE>/reports/head_layer_specialization_atlas/artifacts/figures/candidate_space_strict_heatmap.png
+  pr_max_pairs: 50000
+  seed: 42
+  cluster_top_n: 200
+  cluster_jaccard_threshold: 0.05
+  cluster_use_candidate_sources: false
+  cluster_use_candidate_targets: false
+  heatmap_metric: aupr
+  bootstrap_repeats: 50
+  bootstrap_top_k: 10
+  bootstrap_max_pairs: 50000
