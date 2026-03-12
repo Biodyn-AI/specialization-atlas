@@ -12,17 +12,27 @@
 \usepackage{caption}
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{lineno}
 
-\title{Head/Layer Specialization Atlas for scGPT Across Tissues:\\
-Extended Empirical Analysis and Biological Interpretation}
-\author{Ihor Kendiukhov}
+\doublespacing
+\linenumbers
+
+\title{Head/layer specialization atlas for scGPT across tissues: extended empirical analysis and biological interpretation}
+\author{Ihor Kendiukhov\textsuperscript{1,*}}
 \date{}
+
+\newcommand{\affiliation}{\textsuperscript{1}University of T\"ubingen, T\"ubingen, Germany}
+\newcommand{\corresponding}{\textsuperscript{*}Corresponding author: kenduhov.ig@gmail.com}
 
 \graphicspath{{figures/}}
 
 \begin{document}
 \sloppy
 \maketitle
+
+\noindent\affiliation\\
+\corresponding
 
 \begin{abstract}
 Attention-based foundation models for single-cell genomics, such as scGPT, learn rich internal representations across hundreds of attention heads, yet the biological logic encoded by individual heads remains largely unexplored.
@@ -351,7 +361,7 @@ This dissociation implies a two-level functional organization within scGPT's att
 
 \subsection{Follow-up validation experiments}
 
-\paragraph{Checkpoint replication.}
+\noindent\textbf{Checkpoint replication.}
 To test whether head families generalize across independently trained checkpoints, we repeated the threshold-robust enrichment analysis on three additional scGPT checkpoints (whole-human, kidney-specific, brain-specific), after correcting a critical artifact in prior checkpoint analyses where zero-score edges produced non-informative enrichment tests.
 
 \begin{figure}[htbp]
@@ -363,7 +373,7 @@ To test whether head families generalize across independently trained checkpoint
 
 Replication is partial but scientifically meaningful. The strongest immune-family head (0:3) survives in at least one independent checkpoint, providing evidence that its enrichment is not an artifact of the specific training run. The failure to replicate in tissue-specific checkpoints likely reflects reduced statistical power (fewer nonzero edges available for testing) rather than biological inconsistency, given that 0:3 still ranks near the top in those contexts.
 
-\paragraph{Candidate-space expansion with degeneracy control.}
+\noindent\textbf{Candidate-space expansion with degeneracy control.}
 The degenerate immune benchmark (2 candidate pairs, AUPR=0.50 for all heads) motivated an exploration of alternative candidate-space definitions. We introduced a \texttt{source\_only} candidate regime that includes all gene pairs where the source gene is a known TF, without requiring the target to be in the curated reference. This yields a calibrated middle point between the strict (fully curated) and fully expanded (all gene pairs) regimes:
 
 \begin{figure}[htbp]
@@ -381,7 +391,7 @@ The degenerate immune benchmark (2 candidate pairs, AUPR=0.50 for all heads) mot
 
 The source-only regime resolves the binary degeneracy of the strict space while preserving meaningful head differentiation. This result has methodological implications beyond this specific analysis: benchmarking GRN inference in single-cell settings requires careful attention to candidate-space construction, as overly restrictive spaces produce degeneracy while overly permissive spaces drown signal in class imbalance~\cite{pratapa2020beeline}.
 
-\paragraph{Perturbation validation for immune and metabolic head families.}
+\noindent\textbf{Perturbation validation for immune and metabolic head families.}
 The ultimate test of whether head-identified regulatory programs are biologically genuine is alignment with experimentally measured perturbation effects. We constructed overlap-aware family manifests for the immune (ETS1/EGR1 pairs) and metabolic (CREB1/DDIT3 pairs) head families, and evaluated them against published perturbation screens:
 
 \begin{itemize}
@@ -481,6 +491,24 @@ This study transforms the analysis of scGPT's attention structure from a compact
 %% ───────────────────────────────────────────────────────────────
 
 All code, analysis pipelines, configuration files, and figure-generation scripts are publicly available at \url{https://github.com/Biodyn-AI/specialization-atlas}. The repository includes instructions for reproducing all main figures and tables, including supplementary robustness analyses. Tabula Sapiens data are available from the Tabula Sapiens consortium~\cite{jones2022tabula}. Perturbation data are from Dixit et al.~\cite{dixit2016perturb} and Adamson et al.~\cite{adamson2016multiplexed}.
+
+%% ───────────────────────────────────────────────────────────────
+\section*{Author Contributions}
+%% ───────────────────────────────────────────────────────────────
+
+\textbf{Ihor Kendiukhov}: Conceptualization, Methodology, Software, Formal Analysis, Investigation, Data Curation, Writing -- Original Draft, Writing -- Review \& Editing, Visualization.
+
+%% ───────────────────────────────────────────────────────────────
+\section*{Funding}
+%% ───────────────────────────────────────────────────────────────
+
+This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
+
+%% ───────────────────────────────────────────────────────────────
+\section*{Competing Interests}
+%% ───────────────────────────────────────────────────────────────
+
+The author declares no competing interests.
 
 %% ───────────────────────────────────────────────────────────────
 
