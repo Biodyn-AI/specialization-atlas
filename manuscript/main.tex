@@ -138,7 +138,7 @@ Using the TF-level enrichment summary table, we quantify per-TF recall deltas re
 
 \subsection{Tissue-level head specialization is robust in non-degenerate tissues}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \small
 \caption{Top-head improvement over aggregate baseline by tissue. Non-degenerate tissues show clear top-head lift; the immune condition is saturated at AUPR\,=\,0.50 by a degenerate two-pair candidate space.}
@@ -174,16 +174,16 @@ The central implication is that within-tissue head specialization is a robust fi
 
 \subsection{Per-tissue heatmaps reveal distinct specialization landscapes}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{tissue_heatmaps_composite.png}
-\caption{Head/layer AUPR heatmaps for the three non-degenerate tissues and a notation explaining the exclusion of the degenerate immune dataset. Each panel shows AUPR values for all 96 head/layer combinations, with warmer colors indicating higher regulatory-edge recovery. The specialization landscape differs substantially across tissues: kidney shows diffuse moderate signal, lung has concentrated high-value regions in early-layer heads, and external Krasnow lung exhibits a different but reproducible pattern with peaks in mid-layer heads.}
+\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{tissue_heatmaps_composite.png}
+\caption{Head/layer AUPR heatmaps for the three non-degenerate tissues. Each panel shows AUPR values for all 96 head/layer combinations, with warmer colors indicating higher regulatory-edge recovery. The specialization landscape differs substantially across tissues: kidney shows diffuse moderate signal, lung has concentrated high-value regions in early-layer heads, and external Krasnow lung exhibits a different but reproducible pattern with peaks in mid-layer heads. The immune dataset is excluded because its two-pair candidate space saturates AUPR at 0.50 for all heads (see Section~5.11 for candidate-space expansion analysis).}
 \label{fig:tissue-heatmaps}
 \end{figure}
 
 The three non-degenerate tissue heatmaps (Figure~\ref{fig:tissue-heatmaps}) demonstrate that scGPT does not use a single universal circuit for regulatory-edge representation. Instead, each tissue context activates a distinct subset of head/layer positions, with lung tissue showing the most concentrated specialization (a few heads dramatically outperform the rest) and kidney showing a more diffuse distribution. This pattern is biologically sensible: lung tissue is characterized by sharply distinct cell-type programs (alveolar type I/II, airway basal, ciliated, secretory)~\cite{sikkema2023lung} that may demand more specialized attention routing, while kidney contains multiple epithelial subtypes along the nephron axis that share many regulatory features, potentially yielding a less sharply differentiated head landscape.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]{head_overlap_top50_heatmap.png}
 \includegraphics[width=0.48\textwidth]{head_cluster_stability_heatmap.png}
@@ -196,14 +196,14 @@ The three non-degenerate tissue heatmaps (Figure~\ref{fig:tissue-heatmaps}) demo
 
 Moving from tissue-level aggregates to individual edges provides a fundamentally different view of head importance. Our analysis of 240,150 edge attributions reveals that raw head frequency (how often a head is the top-attributed head for an edge) is a poor proxy for biological informativeness.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{extended_decile_calibration.png}
 \caption{Edge-score decile calibration. Edges are binned into ten equally-sized groups by confidence score. As confidence increases (rightward), the mean maximum head-layer score rises and the zero-score fraction declines, indicating that high-confidence regulatory edges have concentrated, non-trivial head support. At the lowest confidence deciles, the majority of edges have zero head scores, consistent with the fallback regime dominated by head 8:0.}
 \label{fig:decile-calibration}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{extended_top1_head_usage.png}
 \caption{Top-1 head usage decomposition. For each head, we show the total number of edges for which it is the top-attributed head, split into nonzero-score (informative) and zero-score (fallback) contributions. Head 8:0 dominates the volume (129,737 edges, 54\% of total) but is almost entirely composed of zero-score assignments (zero fraction 0.9998), consistent with a default fallback role rather than genuine regulatory representation.}
@@ -223,14 +223,14 @@ This pattern, a single head claiming the majority of edges but carrying virtuall
 
 \subsection{High-confidence signal is concentrated in three heads}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{extended_high_conf_head_enrichment.png}
 \caption{Head-level enrichment for high-confidence edges. Each point represents one of the 96 attention heads; the x-axis shows the odds ratio for enrichment among high-confidence (top-decile nonzero) edges, and the y-axis shows $-\log_{10}(q)$ after BH correction (capped at 50 for display). Three heads (0:3, 0:5, 9:1) are strongly enriched (green points above the significance line), while many heads are significantly depleted. The dashed line indicates $q=0.10$.}
 \label{fig:highconf-enrichment}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \small
 \caption{Heads significantly enriched for high-confidence edges (BH-corrected $q<0.10$). Only three heads pass correction, demonstrating sparse concentration of high-quality regulatory signal.}
@@ -250,14 +250,14 @@ The enrichment analysis reveals a remarkably sparse structure: out of 96 heads, 
 
 \subsection{Threshold sweep confirms stability of enriched heads}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{threshold_robustness_composite.png}
 \caption{Robustness of high-confidence enrichment across thresholds. Left: $-\log_{10}(q)$ heatmap across top-20/15/10/5\% confidence definitions for the top 15 heads. Signal is concentrated in the top three rows (0:3, 0:5, 9:1) with strong enrichment that persists or intensifies at stricter thresholds. Right: consensus bar chart showing the number of threshold settings where each head remains significant at $q<0.10$. Heads 0:3 and 0:5 achieve maximum robustness (4/4 thresholds), while 9:1 is robust at 3/4.}
 \label{fig:threshold-robustness}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \small
 \caption{Consensus heads from the threshold sweep (top 20/15/10/5\% nonzero edges). Robust heads maintain significance across multiple definitions of ``high confidence,'' reducing sensitivity to any single threshold choice.}
@@ -282,7 +282,7 @@ The threshold sweep (Figure~\ref{fig:threshold-robustness}, Table~\ref{tab:thres
 
 The GO:BP enrichment analysis reveals that the three core enriched heads map to two distinct and biologically coherent programs (Table~\ref{tab:themes}).
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \small
 \caption{Representative biological themes from head-specific GO:BP enrichment. Heads 0:3, 0:5, and 0:1 converge on immune/adaptive processes, while head 9:1 captures a distinct metabolic/catabolic program.}
@@ -306,11 +306,11 @@ Head 9:1 captures a qualitatively different program centered on small-molecule m
 
 \subsection{TF-level gains are tissue-concentrated and regulator-specific}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]{extended_tf_delta_distribution.png}
 \includegraphics[width=0.48\textwidth]{extended_tf_delta_top.png}
-\caption{TF-level head effects. Left: tissue-wise distribution of recall deltas versus the aggregate-attention baseline, showing that lung exhibits a broad distribution of positive gains while kidney and external lung are centered at zero. Right: the top tissue/head/TF combinations by positive recall delta, highlighting the concentration of large gains in specific lung-associated regulators.}
+\caption{TF-level head effects. Left: tissue-wise distribution of recall deltas versus the aggregate-attention baseline, showing that lung exhibits a broad distribution of positive gains while kidney and external Krasnow lung are centered at zero. Right: the top TF-specific recall gains, where each bar represents a transcription factor recovered by a specific attention head in a given tissue (e.g., ``PPARG via head 4:4 (Lung)'' means that head 4:4 improved PPARG target recall by +0.417 in the lung atlas). Bars are colored by tissue of origin.}
 \label{fig:tf-delta}
 \end{figure}
 
@@ -329,7 +329,7 @@ The absence of positive gains in kidney and external lung indicates that the cur
 
 \subsection{Bridge analysis: tissue-top heads and global evidence heads are distinct populations}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{extended_bridge_scatter.png}
 \caption{Tissue-top atlas heads (high AUPR in per-tissue benchmarks) versus global evidence support (nonzero edge counts from the 240,150-edge evidence table). The two axes of ``head importance'' are weakly correlated: heads that rank highest within a specific tissue's regulatory benchmark are not the same heads that dominate high-confidence edges globally. This dissociation motivates a two-level functional interpretation.}
@@ -352,10 +352,10 @@ This dissociation implies a two-level functional organization within scGPT's att
 \paragraph{Checkpoint replication.}
 To test whether head families generalize across independently trained checkpoints, we repeated the threshold-robust enrichment analysis on three additional scGPT checkpoints (whole-human, kidney-specific, brain-specific), after correcting a critical artifact in prior checkpoint analyses where zero-score edges produced non-informative enrichment tests.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.75\textwidth]{checkpoint_head_family_replication_bar.png}
-\caption{Checkpoint replication of canonical head families, presented as a heatmap of significant thresholds (out of 4 tested) with $q<0.10$. Head 0:3 fully replicates in the whole-human checkpoint (4/4 thresholds, minimum $q = 1.15 \times 10^{-14}$). Tissue-specific checkpoints show near-significant ranks (0:3 ranks 4th in kidney, 5th in brain) but do not reach significance after correction, consistent with the expected reduction in power when moving from a broad whole-human context to smaller tissue-specific datasets.}
+\includegraphics[width=\textwidth]{checkpoint_head_family_replication_bar.png}
+\caption{Checkpoint replication of canonical head families across three independently trained scGPT checkpoints. Left: minimum q-value (BH-corrected) across four threshold settings, displayed on a $-\log_{10}$ scale. Head 0:3 achieves overwhelming significance in the whole-human checkpoint ($q = 1.1 \times 10^{-14}$), while tissue-specific checkpoints show suggestive but non-significant q-values (kidney $q=0.39$, brain $q=0.62$). Right: maximum odds ratios reveal that effect sizes remain elevated even where statistical significance is not reached, with 0:3 showing OR=4.1 in whole-human and OR=2.9 in brain. N/A entries indicate head 9:1 had insufficient nonzero edges for testing in kidney and brain checkpoints.}
 \label{fig:checkpoint-replication}
 \end{figure}
 
@@ -364,7 +364,7 @@ Replication is partial but scientifically meaningful. The strongest immune-famil
 \paragraph{Candidate-space expansion with degeneracy control.}
 The degenerate immune benchmark (2 candidate pairs, AUPR=0.50 for all heads) motivated an exploration of alternative candidate-space definitions. We introduced a \texttt{source\_only} candidate regime that includes all gene pairs where the source gene is a known TF, without requiring the target to be in the curated reference. This yields a calibrated middle point between the strict (fully curated) and fully expanded (all gene pairs) regimes:
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.72\textwidth]{candidate_space_tradeoff_curve.png}
 \caption{Candidate-space expansion tradeoff for the immune atlas. As the candidate space expands from strict (314 pairs) to source-only (13,189 pairs) to fully expanded (1,438,800 pairs), the class prior collapses and top-head AUPR declines. Source-only masking provides a usable middle regime that alleviates strict-space degeneracy without collapsing to the uninformative expanded extreme.}
@@ -387,7 +387,7 @@ The ultimate test of whether head-identified regulatory programs are biologicall
 \item Metabolic family: evaluated against multiplexed CRISPR screening data~\cite{adamson2016multiplexed}. $n_{\text{pairs}}=29$, $n_{\text{pos}}=12$. AUPR = 0.405, AUROC = 0.475, permutation $p = 0.451$.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.75\textwidth]{targeted_perturbation_overlap_metrics.png}
 \caption{Overlap-aware perturbation validation for immune (ETS1/EGR1) and metabolic (CREB1/DDIT3) head families. Both families achieve non-degenerate metrics above the positive-rate baseline, with the immune family showing stronger alignment. Bar colors indicate AUPR (blue), AUROC (orange), and the positive-rate baseline (gray). Permutation p-values are moderate, supporting cautious alignment claims rather than strong causal equivalence.}
