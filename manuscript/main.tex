@@ -44,6 +44,8 @@ Understanding how foundation models internally represent biological knowledge is
 
 Work in natural language processing has established that transformer attention heads are not functionally equivalent: some heads specialize in syntactic relationships, positional tracking, or semantic roles, while others can be pruned with minimal performance loss~\cite{voita2019heads,michel2019sixteen,clark2019bert}. In the protein domain, language models like ESM have shown that attention patterns encode structural contacts and evolutionary relationships~\cite{rives2021esm}. The in-context learning literature further reveals that specific heads, termed induction heads, play outsized roles in driving model capabilities~\cite{olsson2022induction}. These findings from adjacent domains motivate our hypothesis that biological foundation models, too, may contain functionally specialized heads encoding distinct regulatory programs.
 
+Recent work has begun to address this question directly in the single-cell genomics domain. Consens et al.~\cite{consens2025attention} developed a framework that correlates per-token attention scores with curated biological annotations across genomic transformers including scGPT, then uses large language models to generate natural-language summaries of each head's biological focus, revealing that biologically meaningful attention patterns emerge during pretraining and are refined during fine-tuning. Separately, a systematic evaluation across scGPT and Geneformer demonstrated that attention-derived signals primarily capture gene co-expression structure rather than unique regulatory information beyond what simpler correlation-based methods provide~\cite{kendiukhov2026coexpression}, establishing an important interpretive baseline for any attention-based regulatory claims. The present work builds on these foundations by shifting from attention-score correlation to direct regulatory-edge recovery using AUPR metrics, applying formal hypothesis testing with global false-discovery correction, and characterizing the resulting head ecosystem through multi-level validation including checkpoint replication and perturbation alignment.
+
 In the biological context, regulatory-network validation commonly relies on curated references such as TRRUST and DoRothEA, supplemented by functional enrichment through Gene Ontology (GO) over-representation analysis~\cite{han2018trrust,garcia2019dorothea,ashburner2000go,kolberg2020gprofiler2}. Perturbation experiments, particularly genome-scale Perturb-seq and CROP-seq screens, provide increasingly powerful tools for testing whether computationally inferred regulatory relationships reflect genuine causal influence~\cite{dixit2016perturb,datlinger2017cropseq,replogle2022perturbseq,adamson2016multiplexed}. We adopt this multi-layer validation philosophy throughout our analysis.
 
 This manuscript presents a full head/layer specialization atlas for scGPT with four goals: (1)~establish robust tissue-level specialization claims under strict statistical controls including global false-discovery correction; (2)~characterize edge-level attribution structure to separate informative from fallback behavior across 240,150 edges; (3)~provide biological interpretation for the heads carrying the strongest high-confidence signal through GO biological-process enrichment and transcription-factor-level analysis; and (4)~make explicit which high-level claims survive adversarial testing, including checkpoint replication and perturbation-linked validation, and which do not. The central finding is not that one universal best head exists, but rather that scGPT has learned a heterogeneous head ecosystem, a structured mixture of tissue-specific performance heads, global immune and metabolic program heads, and sparse fallback heads that dominate low-information edges without contributing meaningful biological signal.
@@ -416,6 +418,9 @@ Prior work on attention-head analysis in biological models has typically focused
 
 This ecology parallels findings in NLP, where specialized heads (syntactic, positional, semantic) coexist with a large population of redundant or prunable heads~\cite{voita2019heads,michel2019sixteen}. The biological analog suggests that foundation models for single-cell genomics may benefit from architectures that explicitly separate program-encoding heads from routing or fallback heads.
 
+\subsection{Relationship to concurrent interpretability work}
+Our atlas complements two recent studies of attention-head interpretability in single-cell foundation models. Consens et al.~\cite{consens2025attention} take a correlation-and-summarization approach: they measure statistical associations between per-token attention weights and biological annotations, then use GPT-4 to generate natural-language descriptions of each head's functional focus, tracking how these associations shift across training stages. Their framework reveals that biological attention patterns emerge during pretraining and sharpen during fine-tuning, providing valuable qualitative insight into head function. Our approach differs fundamentally in that we evaluate heads by their quantitative ability to recover validated regulatory edges (TF--target pairs) using AUPR, then apply formal enrichment testing with Benjamini--Hochberg correction across multiple confidence thresholds. This yields statistically grounded claims about which heads carry genuine regulatory signal, rather than qualitative descriptions of attention focus. Furthermore, our earlier systematic evaluation~\cite{kendiukhov2026coexpression} established that attention scores in scGPT and Geneformer primarily capture co-expression structure rather than unique regulatory information, motivating the shift from attention-weight analysis to the edge-recovery framework employed here. Together, these three studies form a complementary picture: Consens et al.\ describe what heads attend to, Kendiukhov~\cite{kendiukhov2026coexpression} establishes what attention cannot distinguish from co-expression, and the present work identifies which heads nonetheless recover validated regulatory relationships above chance and characterizes their biological programs.
+
 \subsection{Biological implications of the layer-depth organization}
 The observation that immune program heads cluster in layer 0 while the metabolic head resides in layer 9 is consistent with a hierarchical information-processing model in which cell-identity programs are computed first and metabolic-state programs are computed later, potentially conditioned on the identity representation. This depth-dependent specialization echoes the finding from protein language models that earlier layers encode local sequence features while later layers capture higher-order structural and functional relationships~\cite{rives2021esm}. If this pattern generalizes to other biological foundation models, it could guide targeted interventions: probing layer 0 for cell-type-identity features and later layers for state-dependent and metabolic features.
 
@@ -516,6 +521,11 @@ K.~Clark, U.~Khandelwal, O.~Levy, and C.~D.~Manning.
 \newblock What Does {BERT} Look At? An Analysis of {BERT}'s Attention.
 \newblock In \emph{BlackboxNLP Workshop, ACL}, 2019.
 
+\bibitem{consens2025attention}
+M.~E.~Consens, A.~Diaz-Navarro, V.~Chu, L.~Stein, H.~H.~He, A.~Moses, and B.~Wang.
+\newblock Interpreting Attention Mechanisms in Genomic Transformer Models: A Framework for Biological Insights.
+\newblock \emph{bioRxiv}, 2025.06.26.661544, 2025.
+
 \bibitem{cui2024scgpt}
 H.~Cui, C.~Wang, H.~Maan, et~al.
 \newblock scGPT: toward building a foundation model for single-cell multi-omics using generative AI.
@@ -585,6 +595,11 @@ R.~C.~Jones, M.~Karkanias, M.~A.~Krasnow, et~al.
 K.~Kamimoto, et~al.
 \newblock Dissecting cell identity via network inference and in silico gene perturbation.
 \newblock \emph{Nature}, 614(7949):742--751, 2023.
+
+\bibitem{kendiukhov2026coexpression}
+I.~Kendiukhov.
+\newblock Systematic Evaluation of Single-Cell Foundation Model Interpretability Reveals Attention Captures Co-Expression Rather Than Unique Regulatory Signal.
+\newblock \emph{arXiv}, 2602.17532, 2026.
 
 \bibitem{kolberg2020gprofiler2}
 L.~Kolberg, U.~Raudvere, I.~Kuzmin, et~al.
