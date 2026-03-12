@@ -2,6 +2,8 @@ __pycache__/
 *.pyc
 *.pyo
 .DS_Store
+
+# LaTeX build artifacts
 *.aux
 *.log
 *.out
@@ -10,4 +12,16 @@ __pycache__/
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+*.toc
+*.lof
+*.lot
+*.spl
+
+# Python
 .venv/
+*.egg-info/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
